@@ -1,0 +1,130 @@
+@import 'GlobalStyles.scss';
+
+$formwidth: 250px;
+$formwidthMedium: 300px;
+$formwidthLarge: 400px;
+$formwidthXLarge: 500px;
+
+.contactContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    @media (min-width: 1000px) {
+        grid-template-columns: 1fr 1fr;  
+    }
+}
+.contactForm {
+    margin: 60px 35px 0px 35px;
+    width: $formwidth;
+    text-align: center;
+    grid-column: 1/-1;
+    @media (min-width: 400px) {
+        width: $formwidthMedium;
+        margin: 60px 50px 0px 50px;
+    }
+    @media (min-width: 600px) {
+        width: $formwidthXLarge;
+    }
+    @media (min-width: 1000px) {
+        width: $formwidthLarge;
+        grid-column: 1/2;
+    }
+}
+.formIntro {
+    font-family: $primaryHeaderFont;
+    color: black;
+    margin: 70px 10px 25px 10px;
+}
+.formInput {
+    display: block;
+    margin: 10px 0px;
+    width: $formwidth;
+    padding: 5px;
+    box-sizing: border-box;
+    @media (min-width: 400px) {
+        width: $formwidthMedium;
+    }
+    @media (min-width: 600px) {
+        width: $formwidthXLarge;
+    }
+    @media (min-width: 1000px) {
+        width: $formwidthLarge;
+    }
+}
+.formInputBody {
+    display: block;
+    margin: 10px 0px;
+    width: $formwidth;
+    height: 100px;
+    padding: 5px;
+    box-sizing: border-box;
+    @media (min-width: 400px) {
+        width: $formwidthMedium;
+    }
+    @media (min-width: 600px) {
+        width: $formwidthXLarge;
+    }
+    @media (min-width: 1000px) {
+        width: $formwidthLarge;
+    }
+
+}
+.formButton {
+    margin: 5px 0px;
+    background-color: $grey;
+    color: white;
+    width: $formwidth;
+    padding: 10px 5px;
+    box-sizing: border-box;
+    font-family: $primaryMainFont;
+    &:hover {
+        background-color: $orange;
+    }
+    @media (min-width: 400px) {
+        width: $formwidthMedium;
+    }
+    @media (min-width: 600px) {
+        width: $formwidthXLarge;
+    }
+    @media (min-width: 1000px) {
+        width: $formwidthLarge;
+    }
+}
+.contactImage {
+    grid-column: 2/3;
+    background-image: url('../Images/Luva-5cropped.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 400px;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    img {
+        height: 0;
+        width: 0;
+        @media (min-width: 1000px) {
+            height: auto;
+            width: 100%;
+        }
+    }
+}
+.bookingImage {
+    grid-column: 2/3;
+    background-image: url('../Images/Luva-6cropped.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 400px;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    img {
+        height: 0;
+        width: 0;
+        @media (min-width: 1000px) {
+            height: auto;
+            width: 100%;
+        }
+    }
+}
