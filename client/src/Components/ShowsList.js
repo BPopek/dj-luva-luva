@@ -2,28 +2,48 @@ import React, { useContext, useEffect } from 'react'
 import { ShowContext } from './Provider'
 import Shows from './Shows'
 
-function ShowsList() {
+function ShowsList(props) {
     const { shows, getShows } = useContext(ShowContext)
 
     useEffect(() => {
         getShows()
+        
     }, [])
 
-    const mappedShows = shows.map(show => {
+    const mappedShows = (shows.sort(function compare(a, b){
+        let dateA = new Date(a.date);
+        let dateB = new Date(b.date)
+            return dateA - dateB;
+        }).map(show => {
         return(
-        <Shows key={show.name}
+        <Shows key={show._id}
+            id={show._id}
             name={show.name}
+            phone={show.phone}
+            email={show.email}
             venue={show.venue}
             location={show.location}
             time={show.time}
-            price={show.price}
+            date={show.date}
+            type={props.type}
             url={show.url}
+            hidden={show.hidden}
         />
         )
-    })
+    }))
+
     return(
         <div className='showsList'>
-            {mappedShows}
+            { 
+                shows ?
+                <div className='mapShows'>
+                    {mappedShows}
+                </div>
+                :
+                <div className='showEventFiller'>
+                            {/* <p className='test'>test</p> */}
+                </div>
+            }
         </div>
     )
 }

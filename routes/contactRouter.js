@@ -26,15 +26,21 @@ transporter.verify((error, success) => {
 contactRouter.post('/', (req, res, next) => {
     console.dir(req.body)
     const mail = {
-        from: `${req.body.fullName} <${req.body.email}>`,
+        from: `${req.body.name} <${req.body.email}>`,
         to: `djluvaluva@gmail.com`,
-        subject: `NEW MESSAGE via DJ Luva Luva Contact Form`,
+        subject: `New ${req.body.type} inquiry via DJ Luva Luva Website`,
         text: `
-            From: ${req.body.fullName}
-            Email: ${req.body.email}
-            Phone: ${req.body.phone}
-            Message:
-            ${req.body.emailBody}`
+        From: ${req.body.name}
+        Email: ${req.body.email}
+        Phone: ${req.body.phone}
+        Show Type: ${req.body.type}
+        Message:
+        ${req.body.emailBody}
+        ${req.body.venue ? `Venue Name: ${req.body.venue}` : ''} 
+        ${req.body.location ? `Location of Show: ${req.body.location}` : ''} 
+        ${req.body.events ? `Date: ${req.body.events}` : ''} 
+        ${req.body.time ? `Time: ${req.body.time}` : ''}
+        `
     }
     transporter.sendMail(mail, (error, data) => {
         if (error) {

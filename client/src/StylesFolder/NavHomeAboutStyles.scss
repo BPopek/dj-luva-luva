@@ -21,22 +21,22 @@ $animate: all 0.2s ease-in-out;
     top: 0px;
     font-family: $primaryHeaderFont;
     font-size: 15px;
+    color: $grey !important;
     position: relative;
-    color: $grey;
     text-decoration: none;
     line-height: 70px;
     z-index: 1;
     padding: 0px 5px;
+    justify-self: flex-end;
     @media (min-width: 500px) {
-        font-size: 18px;
+        font-size: 18px !important;
         padding: 0px 10px;
     }
     @media (min-width: 700px) {
-        font-size: 18px;
         padding: 0px 30px;
     }
     &:hover {
-        color: $white;
+        color: $white !important;
     }
     &:before {
         content: "";
@@ -61,11 +61,14 @@ $animate: all 0.2s ease-in-out;
         transform: scaleX(1);
       }
 }
+a:hover {
+    text-decoration: none !important;
+}
 .navLinks2 {
     top: 0px;
     font-family: $primaryHeaderFont;
     font-size: 15px;
-    color: $grey;
+    color: $grey !important;
     text-decoration: none;
     line-height: 70px;
     position: relative;
@@ -81,7 +84,7 @@ $animate: all 0.2s ease-in-out;
         padding: 0px 30px;
     }
     &:hover {
-        color: $white;
+        color: $white !important;
     }
     &:before {
         content: "";
@@ -106,22 +109,16 @@ $animate: all 0.2s ease-in-out;
         transform: scaleX(1);
       }
 }
+
 .navbarLogo {
     height: 35px;
     position: absolute;
     left: 20px;
     top: 20px;
-
     @media (min-width: 500px) {
         height: 45px;
         top: 12px;
     }
-    // @media (min-width: 700px) {
-    // }
-    // @media (min-width: 850px) {
-    // }
-    // @media (min-width: 1000px) {
-    // }
 }
 .homeContainer {
     display: grid;
@@ -131,7 +128,7 @@ $animate: all 0.2s ease-in-out;
     margin-top: 50px;
     @media (min-width: 1100px) {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 3 (300px);
+        grid-template-rows: 4 (300px);
     }
 }
 .homeImage {
@@ -140,14 +137,12 @@ $animate: all 0.2s ease-in-out;
     grid-column: 1/-1;
     grid-row: 1/2;
     display: block;
-    @media (min-width: 1100px) {
-        border-bottom: $orange 5px solid;
-    }
+    background-color: $grey;
 }
 .imageSquare {
     width: 50%;
 }
-.soundCloudContainer {
+.upcomingShowsContainer {
     display: flex;
     grid-column: 1/-1;
     grid-row: 2/3; 
@@ -156,7 +151,8 @@ $animate: all 0.2s ease-in-out;
         grid-row: 2/3; 
     }
 }
-.upcomingShowsContainer {
+.videoContainer {
+    position: relative;
     display: flex;
     grid-column: 1/-1;
     grid-row: 3/4; 
@@ -164,6 +160,50 @@ $animate: all 0.2s ease-in-out;
         grid-column: 2/3;
         grid-row: 2/3; 
     }
+}
+.soundCloudContainer {
+    display: flex;
+    grid-column: 1/-1;
+    grid-row: 2/3; 
+    border-top: $orange 5px solid;
+    @media (min-width: 1100px) {
+        grid-column: 1/-1;
+        grid-row: 3/4; 
+    }
+}
+.aboutContainer {
+    display: flex;
+    grid-column: 1/-1;
+    grid-row: 4/5;
+    @media (min-width: 1100px) {
+        grid-column: 1/2;
+        grid-row: 4/5;
+    }
+}
+.socialContainer {
+    display: flex;
+    grid-column: 1/-1;
+    grid-row: 5/6;
+    @media (min-width: 1100px) {
+        grid-column: 2/3;
+        grid-row: 4/5;
+    }
+}
+.video {
+    position: relative;
+    display: flex;
+    border-top: $orange 5px solid;
+    // max-height: 400px;
+    &:focus {
+        outline: none; 
+    } 
+}
+video:focus {
+    outline: none; 
+}
+
+.about {
+    background-color: $orange;
 }
 .quoteDiv {
     position: absolute;
@@ -173,6 +213,12 @@ $animate: all 0.2s ease-in-out;
     right: 0px;
     margin: auto;
     width: 80%;
+    grid-column: 1/-1;
+    grid-row: 3/4; 
+    @media (min-width: 1100px) {
+        grid-column: 2/3;
+        grid-row: 2/3; 
+    }
 }
 .quote {
     color: white;
@@ -220,27 +266,6 @@ $animate: all 0.2s ease-in-out;
         font-size: 60px;
     }
 }
-.aboutContainer {
-    display: flex;
-    grid-column: 1/-1;
-    grid-row: 4/5;
-    @media (min-width: 1100px) {
-        grid-column: 1/2;
-        grid-row: 3/4;
-    }
-}
-.socialContainer {
-    display: flex;
-    grid-column: 1/-1;
-    grid-row: 5/6;
-    @media (min-width: 1100px) {
-        grid-column: 2/3;
-        grid-row: 3/4;
-    }
-}
-.about {
-    background-color: $orange;
-}
 .aboutMe {
     font-family: $primaryMainFont;
     text-align: center;
@@ -262,4 +287,65 @@ $animate: all 0.2s ease-in-out;
     @media (min-width: 1400px) {
         padding: 20px 120px 30px 120px;
     }
+}
+
+/////////////////////////////////////////// dropdown
+.bookingbutton {
+    border: none !important;
+    margin: 0;
+}
+.navlinkcolor {
+    background-color: $white !important;
+    padding: 5px 15px;
+    color: #b8b8b8;
+    border-radius: 0;
+    margin: 0;
+    font-family: 'Unica One';
+    font-size: 15px !important;
+    @media (min-width: 500px) {
+        font-size: 18px !important;
+    }
+}
+.navlinkcolor:hover {
+    background-color: $orange !important;
+}
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+.dropdown>.dropdown-toggle:active {
+    pointer-events: none;
+}
+.dropdown-menu {
+    padding: 0 !important;
+    margin: 0 !important;
+    min-width: 0px !important;
+    border-radius: 0 !important;
+    border: 2px $black solid !important;
+}
+.dropdown {
+    width: auto;
+    position: relative;
+}
+.dropdown-item {
+    padding: 5px 15px !important;
+    background-color: $orange;
+    &:focus {
+        outline: none; 
+    } 
+}
+.btn {
+    display: inherit !important;
+}
+.dropdownMain {
+    display: flex !important;
+}
+.loginLink {
+    position: relative;
+}
+.djLogin {
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+    font-family: $primaryHeaderFont;
+    color: $grey
 }

@@ -1,8 +1,9 @@
 import React, { useState, useContext } from 'react';
 // import { Context } from '..Provider';
 import { ShowContext } from '../Components/Provider'
+// import logoDanOrange from '../Images/DJ-Luva-Luva_Dan-orange.png'
 
-import { logoOrange } from '../Images/DJ-Luva-Luva_Dan-orange.png';
+import logoOrange from '../Images/DJ-Luva-Luva_Dan-orange.png';
 
 function Login(props) {
     const { login } = useContext(ShowContext)
@@ -33,34 +34,36 @@ function Login(props) {
 
             })
             .catch(err => {
-                console.log(err)
+                console.dir(err)
                 setErrorMessage(err.response.data.message)
             })
             clearInputs()
     }
 
     return(
-        <div className='loginForm'>
-            <form onSubmit={handleSubmit} className=''>
-                <img src={logoOrange} className='formLogo' alt='logo' />
-                <h3 className='loginHeader'>Log in:</h3>
-                <input 
-                    onChange={handleChange}
-                    value={username}
-                    name='username'
-                    type='text'
-                    placeholder='Username'
-                    className='loginFormInput'
-                    />
-                <input
-                    onChange={handleChange}
-                    value={password}
-                    name='password'
-                    type='password'
-                    placeholder='Password'
-                    className='loginFormInput'
-                    />
-                <button type='submit' className='loginButton'>Log In</button>
+        <div className='loginSignupForm'>
+            <form onSubmit={handleSubmit} className='form'>
+                <img src={logoOrange} className='formLogo' alt='DJ Luva Luva Logo' />
+                <h3 className='formHeader'>LOG IN:</h3>
+                <div className='inputs'>
+                    <input 
+                        onChange={handleChange}
+                        value={username}
+                        name='username'
+                        type='text'
+                        placeholder='Username'
+                        className='loginSignupFormInput'
+                        />
+                    <input
+                        onChange={handleChange}
+                        value={password}
+                        name='password'
+                        type='password'
+                        placeholder='Password'
+                        className='loginSignupFormInput'
+                        />
+                    <button type='submit' className='formButton'>Log In</button>
+                </div>
             </form>
             {
                 (errorMessage) &&

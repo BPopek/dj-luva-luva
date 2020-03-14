@@ -1,9 +1,16 @@
 @import 'GlobalStyles.scss';
+@import "image-gallery.scss";
+@import "carousel.css";
 
 $formwidth: 250px;
 $formwidthMedium: 300px;
 $formwidthLarge: 400px;
 $formwidthXLarge: 500px;
+
+$halfformwidth: 120px;
+$halfformwidthMedium: 145px;
+$halfformwidthLarge: 195px;
+$halfformwidthXLarge: 245px;
 
 .contactContainer {
     display: grid;
@@ -30,9 +37,37 @@ $formwidthXLarge: 500px;
         grid-column: 1/2;
     }
 }
+input {
+    background-color: $white;
+}
+.bookingContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    @media (min-width: 1000px) {
+        grid-template-columns: 1fr 1fr;  
+    }
+}
+.bookingForm {
+    margin: 60px 35px 0px 35px;
+    width: $formwidth;
+    text-align: center;
+    grid-column: 1/-1;
+    @media (min-width: 400px) {
+        width: $formwidthMedium;
+        margin: 60px 50px 0px 50px;
+    }
+    @media (min-width: 600px) {
+        width: $formwidthXLarge;
+    }
+    @media (min-width: 1000px) {
+        width: $formwidthLarge;
+        grid-column: 1/2;
+    }
+}
 .formIntro {
     font-family: $primaryHeaderFont;
-    color: black;
+    color: $orange;
     margin: 70px 10px 25px 10px;
 }
 .formInput {
@@ -41,6 +76,10 @@ $formwidthXLarge: 500px;
     width: $formwidth;
     padding: 5px;
     box-sizing: border-box;
+    border-top-style: hidden;
+    border-left-style: hidden;
+    border-right-style: hidden;
+    border-bottom: 1px $grey solid;
     @media (min-width: 400px) {
         width: $formwidthMedium;
     }
@@ -51,9 +90,51 @@ $formwidthXLarge: 500px;
         width: $formwidthLarge;
     }
 }
+.formInputDate {
+    display: inline-block;
+    margin-top: 20px;
+    margin-right: 5px;
+    width: $halfformwidth;
+    padding: 5px;
+    box-sizing: border-box;
+    border-top-style: hidden;
+    border-left-style: hidden;
+    border-right-style: hidden;
+    border-bottom: 1px $grey solid;
+    @media (min-width: 400px) {
+        width: $halfformwidthMedium;
+    }
+    @media (min-width: 600px) {
+        width: $halfformwidthXLarge;
+    }
+    @media (min-width: 1000px) {
+        width: $halfformwidthLarge;
+    }
+}
+.formInputTime {
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 5px;
+    width: $halfformwidth;
+    padding: 5px;
+    box-sizing: border-box;
+    border-top-style: hidden;
+    border-left-style: hidden;
+    border-right-style: hidden;
+    border-bottom: 1px $grey solid;
+    @media (min-width: 400px) {
+        width: $halfformwidthMedium;
+    }
+    @media (min-width: 600px) {
+        width: $halfformwidthXLarge;
+    }
+    @media (min-width: 1000px) {
+        width: $halfformwidthLarge;
+    }
+}
 .formInputBody {
     display: block;
-    margin: 10px 0px;
+    margin: 30px 0px 10px 0px;
     width: $formwidth;
     height: 100px;
     padding: 5px;
@@ -70,7 +151,7 @@ $formwidthXLarge: 500px;
 
 }
 .formButton {
-    margin: 5px 0px;
+    margin: 10px 0px 25px 0px;
     background-color: $grey;
     color: white;
     width: $formwidth;
@@ -110,23 +191,86 @@ $formwidthXLarge: 500px;
         }
     }
 }
-.bookingImage {
-    grid-column: 2/3;
-    background-color: $grey;
-    background-image: url('../Images/Luva-6cropped.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 400px;
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    img {
-        height: 0;
-        width: 0;
-        @media (min-width: 1000px) {
-            height: auto;
-            width: 100%;
-        }
+.bookingCalendar {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    margin-bottom: 30px;
+    @media (min-width: 1000px) {
+        margin-top: 130px;
+        grid-column: 2/3;
+        grid-row: 1/2;
+        height: auto;
+        width: 100%;
     }
+}
+.bookingCalendarPrivate {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    margin-bottom: 30px;
+    @media (min-width: 1000px) {
+        margin-top: 130px;
+        grid-column: 2/3;
+        grid-row: 1/2;
+        height: auto;
+        width: 100%;
+    }
+    .react-calendar {
+        display: none;
+        max-width: 100%;
+        background: white;
+        border: 1px solid $grey;
+        font-family: $primaryMainFont;
+        line-height: 1em;
+        @media (min-width: 1000px) {
+            display: block;
+            width: 425px;
+        }
+        @media (min-width: 1080px) {
+          width: 475px;
+      }
+      @media (min-width: 1300px) {
+          width: 550px;    
+          line-height: 2em;
+      }
+      @media (min-width: 1500px) {
+          margin-left: 8%;
+        //   width: 700px;
+      }
+    }
+}
+.carouselContainer {
+    // grid-column: 1/2;
+    // grid-row: 2/3;
+    width: 300px;
+    margin-bottom: 20px;
+    @media (min-width: 440px) {
+        width: 425px;
+    }
+    @media (min-width: 1080px) {
+        width: 475px;
+    }
+    @media (min-width: 1300px) {
+        width: 550px;
+    }
+    @media (min-width: 1500px) {
+        width: 700px;
+    }
+}
+// .carouselImageDiv {
+    // width: 100px;
+    // height: 300px;
+// }
+.carouselImage {
+    max-height: 300px;
+    object-fit: cover;
+    width: auto;
+    @media (min-width: 1300px) {
+        max-height: 350px;
+    }
+    @media (min-width: 1500px) {
+        max-height: 400px;
+    }
+}
+video.carouselImage {
+    width: 100%;
 }

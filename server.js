@@ -11,21 +11,15 @@ app.use(express.json())
 app.use(morgan('dev'))
 
 app.use("/send", require("./routes/contactRouter"));
+app.use("/sendBooking", require("./routes/contactRouter"));
 
-app.use('/api', expressJwt({ secret: process.env.SECRET }))
+// app.use('/api', require('./routes/auth'))
 app.use('/auth', require('./routes/auth'))
-app.use('/api/schedule', require('./routes/show'))
+app.use('/api/potential', require('./routes/potentialShow'), expressJwt({ secret: process.env.SECRET }))
+app.use('/api/schedule', require('./routes/show'), expressJwt({ secret: process.env.SECRET }))
 app.use(express.static(path.join(__dirname, "client", "build")))
 
-app.use((err, res) => {
-    console.error(err);
-    if(err.name === 'UnauthorizedError') {
-        res.status(err.status)
-    }
-    return res.send({ message: err.message })
-});
-
-mongoose.connect('mongodb://localhost:27017/dj-luva-luva',
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/dj-luva-luva',
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -38,11 +32,18 @@ mongoose.connect('mongodb://localhost:27017/dj-luva-luva',
     }
 );
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/todos")
-
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/dj-luva-luva")
 
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
+
+app.use((err, req, res, next) => {
+    console.error(err);
+    if(err.name === 'UnauthorizedError') {
+        res.status(err.status)
+    }
+    return res.send({ message: err.message })
 });
 
 app.listen(PORT, () => {

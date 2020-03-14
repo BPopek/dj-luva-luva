@@ -1,23 +1,23 @@
-import React from 'react'
-import SCPlaceholder from '../Images/Luva-14.jpg'
+import React, { useContext, useEffect } from 'react'
+// import SCPlaceholder from '../Images/Luva-14.jpg'
 import ShowsList from './ShowsList'
-import video from '../Images/IMG_0076.mp4'
+import { ShowContext } from './Provider'
 
 export default function UpcomingShows() {   
+
+    const { shows, getShows } = useContext(ShowContext)
+    useEffect(() => {
+        getShows()
+    }, [])
+
+    // let showsMap = shows.map((show) => show.hidden)
+
     return(
-        <div className='upcomingShows'>
-            <video loop="true" autoplay="autoplay" controls="controls" muted id='video'>
-                
-                <source src={video} type='video/mp4' codecs="avc1.4d002a, mp4a.40.2"></source>
-            </video>
-                {/* <script>
-                    document.getElementById('vid').play()
-                </script> */}
-            <div className='quoteDiv'>
-                <h1 className='quote'>"WORK HARD, PLAY HARD"</h1>
-                <h1 className='quoteLuva'>-DJ LUVA LUVA</h1>
-            </div>
-            {/* <ShowsList /> */}
+        <div className={ shows.some((show) => !show.hidden) ? 
+            'upcomingShowsColor'
+            :
+            'upcomingShows'}>
+            <ShowsList type='upcomingShows'/>
         </div>
     )
 }

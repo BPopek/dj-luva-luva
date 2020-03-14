@@ -1,0 +1,283 @@
+@import 'GlobalStyles.scss';
+@import 'ContactForm.scss';
+
+.DjHomeContainer {
+    margin: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.formIntroDJ {
+    font-family: $primaryHeaderFont;
+    color: $orange;
+    margin: 70px 10px 25px 10px;
+    text-align: center;
+}
+.formInputDJ {
+    display: block;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: $formwidth;
+    padding: 5px;
+    box-sizing: border-box;
+    border-top-style: hidden;
+    border-left-style: hidden;
+    border-right-style: hidden;
+    border-bottom: 1px $grey solid;
+    @media (min-width: 400px) {
+        width: $formwidthMedium;
+    }
+    @media (min-width: 600px) {
+        width: $formwidthXLarge;
+    }
+    @media (min-width: 1000px) {
+        width: $formwidthLarge;
+    }
+}
+.addShowForm {
+    margin: 40px auto 0px auto;
+    text-align: center;
+  
+    @media (min-width: 400px) {
+        margin: 40px auto 0px auto;
+    }
+    @media (min-width: 600px) {
+        margin: 40px auto 0px auto;
+    }
+    @media (min-width: 1000px) {
+    }
+}
+.potentialShowsContainer {
+    display: grid;
+    margin: 0px 15px;
+    // text-align: center;
+    @media (min-width: 400px) {
+        margin: 0px 30px;
+    }
+    @media (min-width: 600px) {
+        margin: 0px 50px;
+    }
+}
+ul {
+    text-align: left;
+    justify-self: center;
+    margin: 0px !important;
+    .note {
+        color: $orange;
+        font-style: italic;
+        margin: 5px 0px;
+    }
+}
+.potentialShowDiv {
+    margin-bottom: 50px;
+    background: $lightGrey;
+    padding: 15px;
+}
+.potentialShowsMap {
+    width: 500px;
+    margin: auto;
+
+    p {
+       text-align: left; 
+       font-family: $primaryMainFont;
+       font-size: 16px;
+    }
+}
+.currentShowsContainer {
+    margin: 0px 15px;
+    text-align: center;
+    @media (min-width: 400px) {
+        margin: 0px 30px;
+    }
+    @media (min-width: 600px) {
+        margin: 0px 50px;
+    }
+    @media (min-width: 1000px) {
+    }
+}
+.DjPageBreak {
+    width: 70%;
+    margin: auto;
+    margin-top: 70px;
+    border: 1px solid black;
+}
+.noShows {
+    font-family: $primaryHeaderFont;
+    font-size: 25px;
+    color: $grey;
+    font-style: oblique;
+    margin-bottom: 25px;
+}
+.djButton {
+    margin: 10px 15px;
+    background-color: $grey;
+    color: white;
+    width: $halfformwidth;
+    padding: 10px 5px;
+    box-sizing: border-box;
+    font-family: $primaryMainFont;
+    &:hover {
+        background-color: $orange;
+    }
+    @media (min-width: 400px) {
+        width: $halfformwidthMedium;
+    }
+    @media (min-width: 600px) {
+        width: $halfformwidthXLarge;
+    }
+    @media (min-width: 1000px) {
+        width: $halfformwidthLarge;
+    }
+}
+.djButtonModal {
+    display: block;
+    margin:  30px auto 5px;
+    text-align: center;
+    background-color: $grey;
+    color: white;
+    width: $halfformwidth;
+    padding: 10px 5px;
+    box-sizing: border-box;
+    font-family: $primaryMainFont;
+    &:hover {
+        background-color: $orange;
+    }
+    @media (min-width: 400px) {
+        width: $halfformwidthMedium;
+    }
+    @media (min-width: 600px) {
+        width: $halfformwidthXLarge;
+    }
+    @media (min-width: 1000px) {
+        width: $halfformwidthLarge;
+    }
+}
+
+// .showInfoDJ {
+//     p {
+//         text-align: left; 
+//         font-family: $primaryMainFont;
+//         font-size: 16px;
+//      }
+// }
+.UpcomingShowsDJ {
+    width: 500px;
+    margin: auto;
+    margin-bottom: 50px;
+    background: $lightGrey;
+    padding: 15px;
+    p {
+        text-align: left; 
+        font-family: $primaryMainFont;
+        font-size: 16px;
+     }
+}
+.loginSignupForm {
+    margin: 100px auto;
+    text-align: center;
+    width: 300px;
+}
+.formLogo {
+    width: 150px;
+    margin: 25px 0px;
+    padding-bottom: 20px;
+    border-bottom: 1px $grey solid;
+}
+.formHeader {
+    font-family: $primaryHeaderFont;
+    color: $orange;
+}
+.loginSignupFormInput {
+    text-align: left;
+    margin: 5px 0px;
+    width: 100%;
+}
+.inputs {
+    text-align: left;
+}
+.formButton {
+    display: block;
+    margin: 10px 0px;
+    background-color: $grey;
+    color: white;
+    width: 100%;
+    padding: 10px 5px;
+    box-sizing: border-box;
+    font-family: $primaryMainFont;
+    &:hover {
+        background-color: $orange;
+    }
+}
+.dateBlockDiv {
+    margin: 20px auto 0px;
+    .note {
+        text-align: left;
+        color: $orange;
+        font-style: italic;
+    }
+}
+.notesList {
+    margin: 20px auto;
+    display: grid;
+    max-width: 650px;
+    .note {
+        justify-self: center;
+        text-align: left;
+        color: $orange;
+        font-style: italic;
+    }
+}
+.dateBlock {
+    font-family: $primaryMainFont;
+    margin: 0px 10px;
+}
+.djTools {
+    margin: 0px;
+}
+.djToolButtonLogout {
+    margin-top: 10px;
+    right: 20px;
+    position: absolute;
+    background-color: $grey;
+    color: white;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    font-family: $primaryMainFont;
+    &:hover {
+        background-color: $orange;
+    }
+    .button {
+        color: none;
+    }
+}
+.djToolButtonNew {
+    margin-top: 10px;
+    right: 115px;
+    position: absolute;
+    background-color: $grey;
+    color: white;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    font-family: $primaryMainFont;
+    &:hover {
+        background-color: $orange;
+    }
+    .button {
+        color: none;
+    }
+}
+.formButtonAdd {
+    display: block;
+    margin: 30px auto 0px;
+    background-color: $grey;
+    color: white;
+    width: 300px;
+    padding: 10px 5px;
+    box-sizing: border-box;
+    font-family: $primaryMainFont;
+    &:hover {
+        background-color: $orange;
+    }
+}
+
